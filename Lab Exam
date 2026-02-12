@@ -1,0 +1,27 @@
+from sense_hat import SenseHat
+from time import sleep
+
+sense = SenseHat()
+sense.clear()
+
+# RGB colours
+GREEN = [0, 255, 0]
+YELLOW = [255, 255, 0]
+OFF = [0, 0, 0]
+
+# Ask user for A
+A = int(input("Enter number of green blinks: "))
+
+# GREEN state: blink A times
+for i in range(A):
+    sense.clear(GREEN)   # green ON
+    sleep(0.5)
+    sense.clear(OFF)     # green OFF
+    sleep(0.5)
+
+# Transition to YELLOW
+sense.clear(YELLOW)
+sleep(2)
+
+# Turn off at end (optional)
+sense.clear()
